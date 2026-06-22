@@ -6,7 +6,7 @@ function Search({ onSearch }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (!city.trim()) return;
-    Onsearch(city);
+    onSearch(city);
   }
   return (
     <section className="search">
@@ -14,7 +14,7 @@ function Search({ onSearch }) {
       <form className="search-box" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search for a city, e.g., New York Search Feels like"
+          placeholder="Search for a city, e.g., New York"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
