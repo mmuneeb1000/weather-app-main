@@ -28,12 +28,15 @@ body {
   font-family: "DM Sans", sans-serif;
   background-color: var(--neutral-900);
   color: var(--white);
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 
 h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1rem;
 }
 header,
 .search {
@@ -52,7 +55,7 @@ main {
   align-items: center;
   place-content: center;
   row-gap: 2rem;
-  width: 68rem;
+  width: 60rem;
   height: 25rem;
   margin: 0 auto;
 }
@@ -66,12 +69,6 @@ main {
   grid-column: 1;
 }
 
-.hourly-display > div {
-  display: flex;
-  width: 15rem;
-  height: 3rem;
-  border: 1px solid var(--white);
-}
 .search {
   flex-direction: column;
   justify-content: center;
@@ -105,23 +102,29 @@ main {
   width: 35rem;
   gap: 1rem;
 }
-.secondary-display > div {
-  display: flex;
-  width: 15rem;
-  height: 5rem;
-  border: 1px solid var(--white);
-}
 
 .daily-weather {
   display: flex;
   justify-content: space-between;
   width: 35rem;
 }
-
+.secondary-display > div {
+  display: flex;
+  width: 15rem;
+  height: 5rem;
+  border: 1px solid var(--white);
+}
 .daily-weather > div {
   display: flex;
   width: 15rem;
   height: 5rem;
+  border: 1px solid var(--white);
+}
+
+.hourly-display > div {
+  display: flex;
+  width: 15rem;
+  height: 3rem;
   border: 1px solid var(--white);
 }
 .attribution {
