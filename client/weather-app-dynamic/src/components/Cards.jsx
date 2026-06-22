@@ -1,5 +1,13 @@
 function Cards() {
-  return <h1>This is cards</h1>;
+  return (
+    <section>
+      <div>Weather Card</div>
+      <div>Feels Like</div>
+      <div>Humidity</div>
+      <div>Wind</div>
+      <div>Precipitation</div>
+    </section>
+  );
 }
 
 export default Cards;
