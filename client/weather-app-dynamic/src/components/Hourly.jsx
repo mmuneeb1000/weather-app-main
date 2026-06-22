@@ -1,20 +1,18 @@
-function Hourly() {
+function Hourly({ hourly }) {
+  const hours = hourly.time.slice(0, 24);
   return (
     <section className="hourly-display">
       <h2>Hourly Forecast</h2>
-      <select>
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-        <option>Saturday</option>
-        <option>Sunday</option>
-      </select>
-      <div>10AM</div>
-      <div>11AM</div>
-      <div>12AM</div>
-      <div>1PM</div>
+
+      <div className="hourly">
+        {hours.slice(0, 10).map((hour, index) => (
+          <div key={hour}>
+            <p>{new Date(hour).getHours()}:00</p>
+
+            <p>{Math.round(hourly.temperature_2m[index])}°</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

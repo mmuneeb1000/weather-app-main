@@ -63,6 +63,7 @@ main {
 .hourly-display {
   grid-row: 1 / span 2;
   grid-column: 2;
+  align-content: flex-start;
 }
 .weather-display,
 .daily-display {
@@ -91,6 +92,10 @@ main {
   padding: 0.8rem 1.5rem;
 }
 
+.card-icon {
+  width: 2rem;
+  height: 2rem;
+}
 .primary-display {
   display: block;
   width: 35rem;
@@ -102,11 +107,21 @@ main {
   width: 35rem;
   gap: 1rem;
 }
-
-.daily-weather {
+.hourly {
   display: flex;
-  justify-content: space-between;
-  width: 35rem;
+  flex-direction: column;
+  width: 5rem;
+}
+
+.hourly > div {
+  display: flex;
+}
+
+.daily-display > div > article {
+  display: flex;
+  width: 8rem;
+  border: 1px solid var(--white);
+  flex-direction: column;
 }
 .secondary-display > div {
   display: flex;
@@ -114,11 +129,10 @@ main {
   height: 5rem;
   border: 1px solid var(--white);
 }
-.daily-weather > div {
+.daily-display > div {
   display: flex;
   width: 15rem;
   height: 5rem;
-  border: 1px solid var(--white);
 }
 
 .hourly-display > div {
@@ -127,6 +141,7 @@ main {
   height: 3rem;
   border: 1px solid var(--white);
 }
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
