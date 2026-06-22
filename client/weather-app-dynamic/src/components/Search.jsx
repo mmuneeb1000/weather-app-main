@@ -1,6 +1,6 @@
 function Search() {
   return (
-    <section>
+    <section class="search">
       <h1>How's the sky looking today?</h1>
       <input
         itemType="search"

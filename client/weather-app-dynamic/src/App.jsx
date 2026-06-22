@@ -5,7 +5,6 @@ import Cards from "./components/Cards";
 import Footer from "./components/Footer";
 import Daily from "./components/Daily";
 import Hourly from "./components/Hourly";
-import "./App.css";
 
 function App() {
   return (
