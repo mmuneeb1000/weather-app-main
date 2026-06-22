@@ -103,13 +103,17 @@ main {
 }
 
 .card-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .primary-display {
-  display: block;
+  display: flex;
   width: 35rem;
-  border: 1px solid var(--white);
+  height: 12.5rem;
+  background-size: contain;
+  background-image: url(./assets/images/bg-today-large.svg);
+  align-items: center;
+  justify-content: space-around;
 }
 .secondary-display {
   display: flex;
@@ -125,23 +129,48 @@ main {
 .hourly > div {
   display: flex;
 }
-
-.daily-display > div > article {
-  display: flex;
-  width: 8rem;
-  border: 1px solid var(--white);
-  flex-direction: column;
+.location {
+  font-size: 1.2rem;
 }
+.current-icon {
+  width: 6rem;
+  height: 6rem;
+}
+.temperature {
+  font-size: 4rem;
+}
+
 .secondary-display > div {
   display: flex;
   width: 15rem;
   height: 5rem;
-  border: 1px solid var(--white);
+  background-color: var(--neutral-700);
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.5rem;
 }
+.secondary-display > div > p {
+  font-size: 1.5rem;
+}
+
 .daily-display > div {
   display: flex;
-  width: 15rem;
-  height: 5rem;
+  width: 18rem;
+  height: 8rem;
+  gap: 1rem;
+}
+.daily-display > div > article {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 8rem;
+  background-color: var(--neutral-700);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
 }
 
 .hourly-display > div {

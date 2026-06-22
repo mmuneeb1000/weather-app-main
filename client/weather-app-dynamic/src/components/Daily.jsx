@@ -14,7 +14,9 @@ function Daily({ daily }) {
           return (
             <article key={day}>
               <p>
-                {new Date(day).toLocaleDateString("en-US", { weekday: "long" })}
+                {new Date(day).toLocaleDateString("en-US", {
+                  weekday: "short",
+                })}
               </p>
 
               <img
