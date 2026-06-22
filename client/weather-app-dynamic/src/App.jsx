@@ -35,7 +35,7 @@ function App() {
   }
 
   useEffect(() => {
-    searchWeather("Islamabad");
+    searchWeather("Arlington");
   }, []);
 
   return (
