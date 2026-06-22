@@ -1,7 +1,7 @@
 function Hourly() {
   return (
-    <section>
-      <div>Hourly Forecast</div>
+    <section className="hourly-display">
+      <h2>Hourly Forecast</h2>
       <select>
         <option>Monday</option>
         <option>Tuesday</option>
@@ -11,6 +11,10 @@ function Hourly() {
         <option>Saturday</option>
         <option>Sunday</option>
       </select>
+      <div>10AM</div>
+      <div>11AM</div>
+      <div>12AM</div>
+      <div>1PM</div>
     </section>
   );
 }

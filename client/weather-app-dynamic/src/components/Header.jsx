@@ -5,9 +5,7 @@ function Header() {
     <header>
       <img src={logo} />
       <select>
-        <option>
-          Units <img src={unitsLogo} />
-        </option>
+        <option>Units</option>
         <option>Celsius</option>
         <option>Farhenhait</option>
         <option>mph</option>

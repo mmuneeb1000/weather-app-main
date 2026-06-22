@@ -30,30 +30,100 @@ body {
   color: var(--white);
   font-size: 18px;
 }
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
 header,
-.search,
-section {
+.search {
   width: 68rem;
   display: flex;
 }
 header {
   justify-content: space-around;
   align-items: center;
-  height: 20vh;
+  height: 15vh;
+  margin: 0 auto;
+}
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  place-content: center;
+  row-gap: 2rem;
+  width: 68rem;
+  height: 25rem;
+  margin: 0 auto;
+}
+
+.hourly-display {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+}
+.weather-display,
+.daily-display {
+  grid-column: 1;
+}
+
+.hourly-display > div {
+  display: flex;
+  width: 15rem;
+  height: 3rem;
+  border: 1px solid var(--white);
 }
 .search {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  height: 15vh;
+  margin: 0 auto;
 }
 
-section {
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
+.search-box {
+  flex-direction: row;
 }
 
+.search-box > input {
+  padding: 0.8rem;
+  width: 20rem;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+}
+.search-box > button {
+  padding: 0.8rem 1.5rem;
+}
+
+.primary-display {
+  display: block;
+  width: 35rem;
+  border: 1px solid var(--white);
+  height: 10rem;
+}
+.secondary-display {
+  display: flex;
+  width: 35rem;
+  gap: 1rem;
+}
+.secondary-display > div {
+  display: flex;
+  width: 15rem;
+  height: 5rem;
+  border: 1px solid var(--white);
+}
+
+.daily-weather {
+  display: flex;
+  justify-content: space-between;
+  width: 35rem;
+}
+
+.daily-weather > div {
+  display: flex;
+  width: 15rem;
+  height: 5rem;
+  border: 1px solid var(--white);
+}
 .attribution {
   font-size: 0.6875rem;
   text-align: center;

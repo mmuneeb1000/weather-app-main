@@ -11,9 +11,11 @@ function App() {
     <>
       <Header />
       <Search />
-      <Cards />
-      <Daily />
-      <Hourly />
+      <main>
+        <Cards />
+        <Daily />
+        <Hourly />
+      </main>
       <Footer />
     </>
   );

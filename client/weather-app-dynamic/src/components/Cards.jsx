@@ -1,11 +1,13 @@
 function Cards() {
   return (
-    <section>
-      <div>Weather Card</div>
-      <div>Feels Like</div>
-      <div>Humidity</div>
-      <div>Wind</div>
-      <div>Precipitation</div>
+    <section className="weather-display">
+      <div className="primary-display">Berlin 28 Degress</div>
+      <div className="secondary-display">
+        <div>Feels Like</div>
+        <div>Humidity</div>
+        <div>Wind</div>
+        <div>Precipitation</div>
+      </div>
     </section>
   );
 }
