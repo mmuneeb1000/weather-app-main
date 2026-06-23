@@ -2,11 +2,25 @@ import { WEATHER_CODES } from "../services/weatherCodes";
 
 function Hourly({ hourly }) {
   const hours = hourly.time.slice(0, 24);
-
+  const weekdays = [
+    ...new Set(
+      hourly.time.map((time) =>
+        new Date(time).toLocaleDateString("en-US", {
+          weekday: "long",
+        }),
+      ),
+    ),
+  ];
   return (
     <section className="hourly-display">
       <h2>Hourly Forecast</h2>
-
+      <select>
+        {weekdays.map((day) => (
+          <option key={day} value={day}>
+            {day}
+          </option>
+        ))}
+      </select>
       <div className="hourly">
         {hours.slice(0, 8).map((hour, index) => {
           const code = hourly.weather_code[index];
