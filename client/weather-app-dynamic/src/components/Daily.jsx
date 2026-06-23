@@ -13,7 +13,7 @@ function Daily({ daily }) {
 
           return (
             <article key={day}>
-              <p class="daily-weekday">
+              <p className="daily-weekday">
                 {new Date(day).toLocaleDateString("en-US", {
                   weekday: "short",
                 })}

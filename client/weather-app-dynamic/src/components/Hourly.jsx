@@ -13,14 +13,17 @@ function Hourly({ hourly }) {
   ];
   return (
     <section className="hourly-display">
-      <h2>Hourly Forecast</h2>
-      <select>
-        {weekdays.map((day) => (
-          <option key={day} value={day}>
-            {day}
-          </option>
-        ))}
-      </select>
+      <div className="hourly-selector">
+        <h2>Hourly Forecast</h2>
+
+        <select>
+          {weekdays.map((day) => (
+            <option key={day} value={day}>
+              {day}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="hourly">
         {hours.slice(0, 8).map((hour, index) => {
           const code = hourly.weather_code[index];
