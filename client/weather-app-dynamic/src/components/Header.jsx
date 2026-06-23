@@ -4,14 +4,9 @@ function Header() {
   return (
     <header>
       <img src={logo} />
-      <select>
-        <option>Units</option>
-        <option>Celsius</option>
-        <option>Farhenhait</option>
-        <option>mph</option>
-        <option>km/h</option>
-        <option>milimeters(mm)</option>
-        <option>inches(in)</option>
+      <select className="unit-selector">
+        <option>Celsius - km/h</option>
+        <option>Farhenhait - mph</option>
       </select>
     </header>
   );

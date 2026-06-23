@@ -8,7 +8,7 @@ function Hourly({ hourly }) {
       <h2>Hourly Forecast</h2>
 
       <div className="hourly">
-        {hours.slice(0, 10).map((hour, index) => {
+        {hours.slice(0, 8).map((hour, index) => {
           const code = hourly.weather_code[index];
 
           const weather = WEATHER_CODES[code] ?? WEATHER_CODES[0];
@@ -18,7 +18,7 @@ function Hourly({ hourly }) {
               <p>{new Date(hour).getHours()}:00</p>
 
               <img
-                className="card-icon"
+                className="hourly-icon"
                 src={weather.day}
                 alt={weather.label}
               />

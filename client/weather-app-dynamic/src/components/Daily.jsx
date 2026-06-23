@@ -13,22 +13,21 @@ function Daily({ daily }) {
 
           return (
             <article key={day}>
-              <p>
+              <p class="daily-weekday">
                 {new Date(day).toLocaleDateString("en-US", {
                   weekday: "short",
                 })}
               </p>
 
               <img
-                className="card-icon"
+                className="daily-icon"
                 src={weather.day}
                 alt={weather.label}
               />
-
-              <p>
-                {Math.round(daily.temperature_2m_max[index])}° /
-                {Math.round(daily.temperature_2m_min[index])}°
-              </p>
+              <div className="daily-temp">
+                <p>{Math.round(daily.temperature_2m_max[index])}°</p>
+                <p>{Math.round(daily.temperature_2m_min[index])}°</p>
+              </div>
             </article>
           );
         })}
