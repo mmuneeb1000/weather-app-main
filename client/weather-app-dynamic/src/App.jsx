@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getWeatherByCity } from "./services/api";
+import { getWeatherByCity, searchCities } from "./services/api";
 import { useEffect } from "react";
 import Header from "./components/Header";
 import Search from "./components/Search";
@@ -18,6 +18,23 @@ function App() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+
+  async function handleCitySearch(value) {
+    setQuery(value);
+
+    if (!value) {
+      setSuggestions([]);
+      return;
+    }
+
+    try {
+      const results = await searchCities(value);
+      setSuggestions(results || []);
+    } catch {
+      setSuggestions([]);
+    }
+  }
+
   async function searchWeather(city) {
     try {
       setLoading(true);
@@ -44,7 +61,12 @@ function App() {
     <>
       <Header />
 
-      <Search onSearch={searchWeather} />
+      <Search
+        onSearch={searchWeather}
+        query={query}
+        setQuery={handleCitySearch}
+        suggestions={suggestions}
+      />
 
       {loading && <Loading />}
 

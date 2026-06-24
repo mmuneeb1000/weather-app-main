@@ -230,6 +230,11 @@ main {
   border: none;
   border-radius: 0.5rem;
 }
+.suggestions > li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  background: var(--neutral-800);
+}
 
 .loading-state {
   display: grid;

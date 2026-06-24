@@ -2,6 +2,17 @@ import { WEATHER_CODES } from "./weatherCodes";
 
 const GEO_URL = "https://geocoding-api.open-meteo.com/v1/search";
 const WEATHER_URL = "https://api.open-meteo.com/v1/forecast";
+export async function searchCities(query) {
+  if (query.length < 2) return [];
+
+  const response = await fetch(
+    `${GEO_URL}?name=${encodeURIComponent(query)}&count=5`,
+  );
+
+  const data = await response.json();
+
+  return data.results || [];
+}
 
 export async function getWeatherByCity(city) {
   const geoResponse = await fetch(

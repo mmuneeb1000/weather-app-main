@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { searchCities } from "../services/api";
 
-function Search({ onSearch }) {
-  const [city, setCity] = useState("");
+function Search({ onSearch, query, setQuery, suggestions, searchCities }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchCities(query);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [query, searchCities]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!city.trim()) return;
-    onSearch(city);
+    if (!query.trim()) return;
+    onSearch(query);
   }
   return (
     <section className="search">
@@ -15,10 +23,26 @@ function Search({ onSearch }) {
         <input
           type="text"
           placeholder="Search for a city, e.g., New York"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
-        <button>Search</button>
+        <button type="submit">Search</button>
+
+        {suggestions.length > 0 && (
+          <ul className="suggestions">
+            {suggestions.map((city) => (
+              <li
+                key={`${city.latitude}-${city.longitude}`}
+                onClick={() => {
+                  setQuery(city.name);
+                  onSearch(city.name);
+                }}
+              >
+                {city.name}, {city.country}
+              </li>
+            ))}
+          </ul>
+        )}
       </form>
     </section>
   );
