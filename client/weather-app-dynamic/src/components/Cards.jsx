@@ -12,9 +12,9 @@ function Cards({ current, location, weatherInfo, units }) {
     <section className="weather-display">
       <div className="primary-display">
         <div>
-          <h2 className="location">
+          <h3 className="location">
             {location.name}, {location.country}
-          </h2>
+          </h3>
           <p className="date">{currentDate}</p>
         </div>
         <img

@@ -11,22 +11,22 @@ function Loading() {
         <div className="secondary-display">
           <div>
             Feels Like
-            <p>--</p>
+            <p>—</p>
           </div>
           <div>
-            Humidity <p>--</p>
+            Humidity <p>—</p>
           </div>
           <div>
-            Wind <p>--</p>
+            Wind <p>—</p>
           </div>
           <div>
-            Precipitation <p>--</p>
+            Precipitation <p>—</p>
           </div>
         </div>
       </div>
 
       <div className="skeleton-daily">
-        <h2>7-Day Forecast</h2>
+        <h3>7-Day Forecast</h3>
         <div className="daily-container">
           {Array.from({ length: 7 }).map((_, index) => (
             <div key={index} className="daily-element"></div>
@@ -36,10 +36,10 @@ function Loading() {
 
       <div className="skeleton-hourly">
         <div className="hourly-selector">
-          <h2>Hourly Forecast</h2>
+          <h3>Hourly Forecast</h3>
 
           <select>
-            <option>--</option>
+            <option>—</option>
           </select>
         </div>
 

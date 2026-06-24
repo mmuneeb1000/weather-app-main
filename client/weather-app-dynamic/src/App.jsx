@@ -16,11 +16,11 @@ function App() {
   const [isNight, setIsNight] = useState(false);
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [error, setError] = useState("");
-  const [noResults, setNoResults] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [units, setUnits] = useState("metric");
   const [selectedDay, setSelectedDay] = useState(null);
+  const [lastQuery, setLastQuery] = useState("Arlington");
 
   async function handleCitySearch(value) {
     setQuery(value);
@@ -39,10 +39,11 @@ function App() {
   }
 
   async function searchWeather(city, selectedUnits = units) {
+    setLastQuery(city);
     try {
       setLoading(true);
       setError("");
-      setNoResults(false);
+
       setSuggestions([]);
       const data = await getWeatherByCity(city, selectedUnits);
       if (!data?.weather || !data?.location) {
@@ -50,7 +51,7 @@ function App() {
         setLocation(null);
         setWeatherInfo(null);
         setIsNight(false);
-        setNoResults(true);
+
         return;
       }
 
@@ -63,7 +64,6 @@ function App() {
       setLocation(null);
       setWeatherInfo(null);
       setIsNight(false);
-      setNoResults(true);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -101,11 +101,14 @@ function App() {
 
       {loading && <Loading />}
 
-      {error && <Error />}
+      {!loading && error && (
+        <Error
+          message={error}
+          onRetry={() => searchWeather(lastQuery, units)}
+        />
+      )}
 
-      {noResults && !loading && <h2>No Search Results Found</h2>}
-
-      {!loading && weather && !noResults && (
+      {!loading && !error && weather && (
         <main>
           <Cards
             current={weather.current}
