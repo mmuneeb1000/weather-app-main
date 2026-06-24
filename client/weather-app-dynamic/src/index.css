@@ -319,3 +319,33 @@ option {
   color: var(--neutral-300);
   padding: 0 0.2rem;
 }
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .search {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .weather-display {
+    display: flex;
+    flex-direction: column;
+  }
+  .daily-display {
+    display: flex;
+    flex-direction: column;
+  }
+  .hourly-display {
+    flex-direction: column;
+  }
+  .hourly {
+    display: flex;
+    flex-direction: column;
+  }
+}
