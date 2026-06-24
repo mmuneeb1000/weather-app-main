@@ -1,4 +1,4 @@
-function Cards({ current, location, weatherInfo }) {
+function Cards({ current, location, weatherInfo, units }) {
   const now = new Date();
   const currentDate = now.toLocaleDateString("en-US", {
     weekday: "long",
@@ -7,6 +7,7 @@ function Cards({ current, location, weatherInfo }) {
     year: "numeric",
   });
 
+  const isMetric = units === "metric";
   return (
     <section className="weather-display">
       <div className="primary-display">
@@ -14,7 +15,7 @@ function Cards({ current, location, weatherInfo }) {
           <h2 className="location">
             {location.name}, {location.country}
           </h2>
-          <p>{currentDate}</p>
+          <p className="date">{currentDate}</p>
         </div>
         <img
           className="current-icon"
@@ -32,10 +33,17 @@ function Cards({ current, location, weatherInfo }) {
           Humidity <p>{current.relative_humidity_2m}%</p>
         </div>
         <div>
-          Wind <p>{current.wind_speed_10m} km/h</p>
+          Wind
+          <p>
+            {current.wind_speed_10m} {isMetric ? "km/h" : "mph"}
+          </p>
         </div>
+
         <div>
-          Precipitation <p>{current.precipitation} mm</p>
+          Precipitation
+          <p>
+            {current.precipitation} {isMetric ? "mm" : "inch"}
+          </p>
         </div>
       </div>
     </section>

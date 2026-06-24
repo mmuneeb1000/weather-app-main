@@ -1,9 +1,14 @@
 function Footer() {
   return (
     <footer className="attribution">
-      Challenge by{" "}
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">M. Muneeb</a>.
+      <p>
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
+        </a>
+        . Coded by <a href="#">M. Muneeb</a>. Powered by
+        <a href="https://open-meteo.com/en/docs">OpenMateo</a>
+      </p>
     </footer>
   );
 }

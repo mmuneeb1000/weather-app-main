@@ -3,7 +3,7 @@ import { WEATHER_CODES } from "../services/weatherCodes";
 function Daily({ daily }) {
   return (
     <section className="daily-display">
-      <h2>7-Day Forecast</h2>
+      <h3>7-Day Forecast</h3>
 
       <div className="daily">
         {daily.time.map((day, index) => {

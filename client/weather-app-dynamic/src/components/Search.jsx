@@ -2,19 +2,40 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { searchCities } from "../services/api";
 
-function Search({ onSearch, query, setQuery, suggestions, searchCities }) {
+function Search({
+  onSearch,
+  query,
+  setQuery,
+  suggestions,
+  setSuggestions,
+  handleCitySearch,
+}) {
+  const [selectedCity, setSelectedCity] = useState(false);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      searchCities(query);
+    if (selectedCity) {
+      setSelectedCity(false);
+      return;
+    }
+
+    if (!query.trim()) {
+      setSuggestions([]);
+      return;
+    }
+
+    const timer = setTimeout(async () => {
+      const results = await searchCities(query);
+      setSuggestions(results);
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [query, searchCities]);
+  }, [query]);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!query.trim()) return;
     onSearch(query);
+    setSuggestions([]);
   }
   return (
     <section className="search">
@@ -24,7 +45,9 @@ function Search({ onSearch, query, setQuery, suggestions, searchCities }) {
           type="text"
           placeholder="Search for a city, e.g., New York"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            (setQuery(e.target.value), handleCitySearch(e.target.value));
+          }}
         />
         <button type="submit">Search</button>
 
@@ -34,6 +57,8 @@ function Search({ onSearch, query, setQuery, suggestions, searchCities }) {
               <li
                 key={`${city.latitude}-${city.longitude}`}
                 onClick={() => {
+                  setSelectedCity(true);
+                  setSuggestions([]);
                   setQuery(city.name);
                   onSearch(city.name);
                 }}

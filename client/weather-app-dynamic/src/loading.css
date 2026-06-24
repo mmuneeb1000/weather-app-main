@@ -1,0 +1,58 @@
+.loading-state {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  width: 58rem;
+  height: 30rem;
+}
+
+.skeleton-daily,
+.skeleton-current {
+  grid-column: 1;
+}
+
+.daily-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.daily-element {
+  width: 5rem;
+  height: 7rem;
+  background-color: var(--neutral-700);
+  border-radius: 0.5rem;
+}
+
+.skeleton-hourly {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  background-color: var(--neutral-800);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+.hourly-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.hourly-element {
+  background-color: var(--neutral-700);
+  padding: 0.45 1rem;
+  height: 2.8rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.loading-primary-display {
+  display: flex;
+  width: 100%;
+  height: 12.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-800);
+  border-radius: 1rem;
+  gap: 1rem;
+  img {
+    width: 30px;
+  }
+}

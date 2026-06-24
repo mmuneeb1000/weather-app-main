@@ -1,4 +1,5 @@
 import loadingIcon from "../assets/images/icon-loading.svg";
+import "../loading.css";
 
 function Loading() {
   return (

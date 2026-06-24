@@ -14,7 +14,11 @@ export async function searchCities(query) {
   return data.results || [];
 }
 
-export async function getWeatherByCity(city) {
+export async function getWeatherByCity(city, units = "metric") {
+  const unitParams =
+    units === "imperial"
+      ? "&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch"
+      : "&temperature_unit=celsius&wind_speed_unit=kmh&precipitation_unit=mm";
   const geoResponse = await fetch(
     `${GEO_URL}?name=${encodeURIComponent(city)}&count=1`,
   );
@@ -32,7 +36,7 @@ export async function getWeatherByCity(city) {
   const location = geoData.results[0];
 
   const weatherResponse = await fetch(
-    `${WEATHER_URL}?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,apparent_temperature,precipitation,relative_humidity_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`,
+    `${WEATHER_URL}?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,apparent_temperature,precipitation,relative_humidity_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min&timezone=auto${unitParams}`,
   );
 
   if (!weatherResponse.ok) {
