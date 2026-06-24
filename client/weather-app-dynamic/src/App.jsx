@@ -7,6 +7,7 @@ import Cards from "./components/Cards";
 import Footer from "./components/Footer";
 import Daily from "./components/Daily";
 import Hourly from "./components/Hourly";
+import Loading from "./components/Loading";
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -15,7 +16,8 @@ function App() {
   const [isNight, setIsNight] = useState(false);
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [error, setError] = useState("");
-
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   async function searchWeather(city) {
     try {
       setLoading(true);
@@ -44,11 +46,11 @@ function App() {
 
       <Search onSearch={searchWeather} />
 
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
 
       {error && <p>{error}</p>}
 
-      {weather && (
+      {!loading && weather && (
         <main>
           <Cards
             current={weather.current}

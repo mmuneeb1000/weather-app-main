@@ -33,7 +33,7 @@ body {
 
 h1 {
   font-size: 2rem;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
 }
 h2 {
   font-size: 1rem;
@@ -45,9 +45,8 @@ header,
   display: flex;
 }
 header {
-  justify-content: space-around;
   align-items: center;
-  height: 10vh;
+  height: 5rem;
   margin: 0 auto;
 }
 header > img {
@@ -57,8 +56,9 @@ main {
   display: grid;
   grid-template-columns: 2fr 1fr;
   row-gap: 2rem;
+  column-gap: 2rem;
   width: 55rem;
-  height: 65vh;
+  height: 32rem;
   margin: 2.2rem auto;
 }
 
@@ -74,7 +74,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 0.8rem;
 }
 .hourly-selector > select {
   background-color: var(--neutral-700);
@@ -82,6 +81,7 @@ main {
   border: none;
   border-radius: 0.5rem;
   padding: 0.45rem;
+  margin-bottom: 0.8rem;
 }
 
 .weather-display,
@@ -93,7 +93,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 15vh;
   margin: 0.5rem auto;
 }
 
@@ -108,32 +107,39 @@ main {
   color: var(--white);
   font-family: inherit;
   font-weight: 500;
-  background-color: var(--neutral-600);
-  border: none;
+  background-color: var(--neutral-800);
+  border: 2px solid var(--neutral-900);
   border-radius: 0.5rem;
-  outline: none;
+  &:focus {
+    outline: 2px solid var(--white);
+  }
 }
 .search-box > button {
   padding: 0.6rem 1.2rem;
   background-color: var(--blue-500);
   color: var(--white);
-  border: none;
+  border: 2px solid var(--neutral-900);
   border-radius: 0.5rem;
   font-family: inherit;
   font-weight: 500;
   &:hover {
-    background-color: var(--neutral-700);
+    background-color: var(--blue-700);
+  }
+  &:focus {
+    outline: 2px solid var(--blue-500);
   }
 }
 
 .primary-display {
   display: flex;
-  width: 35rem;
+  width: 100%;
   height: 12.5rem;
-  background-size: contain;
+  background-size: cover;
   background-image: url(./assets/images/bg-today-large.svg);
   align-items: center;
   justify-content: space-around;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
 }
 
 .primary-display > div {
@@ -143,8 +149,26 @@ main {
 }
 .secondary-display {
   display: flex;
-  width: 35rem;
-  gap: 0.8rem;
+  width: 36rem;
+  gap: 1rem;
+}
+.secondary-display > div {
+  display: flex;
+  width: 100%;
+  height: 6rem;
+  background-color: var(--neutral-800);
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.8rem;
+  color: var(--neutral-200);
+}
+.secondary-display > div > p {
+  font-size: 1.375rem;
+  color: var(--white);
 }
 .hourly {
   display: flex;
@@ -174,38 +198,19 @@ main {
   margin: 0 1.5rem;
 }
 
-.secondary-display > div {
-  display: flex;
-  width: 15rem;
-  height: 5rem;
-  background-color: var(--neutral-700);
-  flex-direction: column;
-  align-items: start;
-  justify-content: space-around;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.8rem;
-  padding: 0.8rem;
-  color: var(--neutral-200);
-}
-.secondary-display > div > p {
-  font-size: 1.375rem;
-  color: var(--white);
-}
-
 .daily-display > div {
   display: flex;
-  width: 18rem;
+  width: 100%;
   height: 8rem;
   gap: 1rem;
 }
 .daily > article {
-  padding: 0.45rem;
+  padding: 0.55rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column: 1 / span 2;
   place-items: center;
-  background-color: var(--neutral-700);
+  background-color: var(--neutral-800);
   border-radius: 0.5rem;
   font-size: 0.875rem;
 }
@@ -224,6 +229,62 @@ main {
   padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
+}
+
+.loading-state {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.skeleton-daily,
+.skeleton-current {
+  grid-column: 1;
+}
+
+.daily-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.daily-element {
+  width: 4rem;
+  height: 8rem;
+  background-color: var(--neutral-700);
+  border-radius: 0.5rem;
+}
+
+.skeleton-hourly {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  background-color: var(--neutral-800);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.hourly-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.hourly-element {
+  background-color: var(--neutral-700);
+  padding: 0.45 1rem;
+  height: 2.8rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.loading-primary-display {
+  display: flex;
+  width: 35rem;
+  height: 12.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-800);
+  border-radius: 1rem;
+  gap: 1rem;
+  img {
+    width: 30px;
+  }
 }
 
 .attribution {
