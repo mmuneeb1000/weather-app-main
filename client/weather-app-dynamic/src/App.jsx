@@ -82,7 +82,7 @@ function App() {
 
   useEffect(() => {
     if (weather?.daily?.time?.length) {
-      setSelectedDay(weather.daily.time[1]);
+      setSelectedDay(weather.daily.time[0]);
     }
   }, [weather]);
 

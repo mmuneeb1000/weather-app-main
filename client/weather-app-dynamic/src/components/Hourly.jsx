@@ -22,9 +22,7 @@ function Hourly({ hourly, selectedDay, setSelectedDay, daily }) {
 
     return filteredHours.findIndex(({ t }) => new Date(t) >= now);
   }, [filteredHours, dayKey]);
-  const safeStart = startIndex === -1 ? 0 : startIndex;
 
-  const next8 = filteredHours.slice(safeStart, safeStart + 8);
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -77,7 +75,7 @@ function Hourly({ hourly, selectedDay, setSelectedDay, daily }) {
         </div>
       </div>
       <div className="hourly">
-        {next8.map(({ t, i }) => {
+        {filteredHours.map(({ t, i }) => {
           const code = hourly.weather_code[i];
           const weather = WEATHER_CODES[code] ?? WEATHER_CODES[0];
 

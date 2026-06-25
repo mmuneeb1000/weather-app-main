@@ -118,6 +118,8 @@ main {
   place-content: start;
   padding: 0.8rem;
   border-radius: 0.5rem;
+  overflow: auto;
+  height: 34rem;
 }
 .hourly-selector {
   display: flex;
