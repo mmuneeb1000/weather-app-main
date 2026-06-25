@@ -37,7 +37,7 @@ h1 {
   text-align: center;
 }
 h3 {
-  font-size: 1rem;
+  font-size: 0.875rem;
   margin-bottom: 0.675rem;
 }
 h2 {
@@ -106,7 +106,7 @@ header > img {
 main {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  column-gap: 2rem;
+  column-gap: 1.5rem;
   width: 58rem;
   margin: 2.2rem auto;
 }
