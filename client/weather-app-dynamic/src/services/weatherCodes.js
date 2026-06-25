@@ -1,107 +1,115 @@
+import sunny from "../assets/images/icon-sunny.webp";
+import partlyCloudy from "../assets/images/icon-partly-cloudy.webp";
+import drizzle from "../assets/images/icon-drizzle.webp";
+import fog from "../assets/images/icon-fog.webp";
+import rain from "../assets/images/icon-rain.webp";
+import snow from "../assets/images/icon-snow.webp";
+import storm from "../assets/images/icon-storm.webp";
+
 export const WEATHER_CODES = {
   0: {
-    day: "/src/assets/images/icon-sunny.webp",
-    night: "src/assets/images/icon-sunny.webp",
+    day: sunny,
+    night: sunny,
     label: "Clear sky",
   },
   1: {
-    day: "/src/assets/images/icon-partly-cloudy.webp",
-    night: "/src/assets/images/icon-partly-cloudy.webp",
+    day: partlyCloudy,
+    night: partlyCloudy,
     label: "Mainly clear",
   },
   2: {
-    day: "/src/assets/images/icon-partly-cloudy.webp",
-    night: "/src/assets/images/icon-partly-cloudy.webp",
+    day: partlyCloudy,
+    night: partlyCloudy,
     label: "Partly cloudy",
   },
   3: {
-    day: "/src/assets/images/icon-drizzle.webp",
-    night: "/src/assets/images/icon-drizzle.webp",
+    day: drizzle,
+    night: drizzle,
     label: "Overcast",
   },
   45: {
-    day: "/src/assets/images/icon-fog.webp",
-    night: "/src/assets/images/icon-fog.webp",
+    day: fog,
+    night: fog,
     label: "Fog",
   },
   48: {
-    day: "/src/assets/images/icon-fog.webp",
-    night: "/src/assets/images/icon-fog.webp",
+    day: fog,
+    night: fog,
     label: "Depositing rime fog",
   },
   51: {
-    day: "/src/assets/images/icon-drizzle.webp",
-    night: "/src/assets/images/icon-drizzle.webp",
+    day: drizzle,
+    night: drizzle,
     label: "Light drizzle",
   },
   53: {
-    day: "/src/assets/images/icon-drizzle.webp",
-    night: "/src/assets/images/icon-drizzle.webp",
+    day: drizzle,
+    night: drizzle,
     label: "Moderate drizzle",
   },
   55: {
-    day: "/src/assets/images/icon-drizzle.webp",
-    night: "/src/assets/images/icon-drizzle.webp",
+    day: drizzle,
+    night: drizzle,
     label: "Dense drizzle",
   },
   61: {
-    day: "/src/assets/images/icon-rain.webp",
-    night: "/src/assets/images/icon-rain.webp",
+    day: rain,
+    night: rain,
     label: "Slight rain",
   },
   63: {
-    day: "/src/assets/images/icon-rain.webp",
-    night: "/src/assets/images/icon-rain.webp",
+    day: rain,
+    night: rain,
     label: "Moderate rain",
   },
   65: {
-    day: "/src/assets/images/icon-rain.webp",
-    night: "/src/assets/images/icon-rain.webp",
+    day: rain,
+    night: rain,
     label: "Heavy rain",
   },
   71: {
-    day: "/src/assets/images/icon-snow.webp",
-    night: "/src/assets/images/icon-snow.webp",
+    day: snow,
+    night: snow,
     label: "Slight snow",
   },
   73: {
-    day: "/src/assets/images/icon-snow.webp",
-    night: "/src/assets/images/icon-snow.webp",
+    day: snow,
+    night: snow,
     label: "Moderate snow",
   },
   75: {
-    day: "/src/assets/images/icon-snow.webp",
-    night: "/src/assets/images/icon-snow.webp",
+    day: snow,
+    night: snow,
     label: "Heavy snow",
   },
   80: {
-    day: "/src/assets/images/icon-storm.webp",
-    night: "/src/assets/images/icon-storm.webp",
+    day: storm,
+    night: storm,
     label: "Rain showers",
   },
   81: {
-    day: "/src/assets/images/icon-storm.webp",
-    night: "/src/assets/images/icon-storm.webp",
+    day: storm,
+    night: storm,
     label: "Moderate rain showers",
   },
   82: {
-    day: "/src/assets/images/icon-storm.webp",
-    night: "/src/assets/images/icon-storm.webp",
+    day: storm,
+    night: storm,
     label: "Violent rain showers",
   },
   95: {
-    day: "/src/assets/images/icon-storm.webp",
-    night: "/src/assets/images/icon-storm.webp",
+    day: storm,
+    night: storm,
     label: "Thunderstorm",
   },
   96: {
-    day: "/src/assets/images/icon-storm.webp",
-    night: "/src/assets/images/icon-storm.webp",
+    day: storm,
+    night: storm,
     label: "Thunderstorm with hail",
   },
   99: {
-    day: "/src/assets/images/icon-storm.webp",
-    night: "/src/assets/images/icon-storm.webp",
+    day: storm,
+    night: storm,
     label: "Severe thunderstorm with hail",
   },
 };
