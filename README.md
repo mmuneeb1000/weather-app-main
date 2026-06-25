@@ -2,14 +2,16 @@
 
 A responsive weather application built with React that provides current weather conditions, hourly forecasts, and 7-day forecasts for locations around the world.
 
-[Features](#features)
-[Built With](#built-with)
-[How It Works](#how-it-works)
-[Data Provided](#data-provided)
-[Future Improvements](#future-improvements)
-[Acknowlegements](#acknowledgements)
-[Links](#links)
-[Install](#installation)
+## Table of Content
+
+- [Features](#features)
+- [Built With](#built-with)
+- [How It Works](#how-it-works)
+- [Data Provided](#data-provided)
+- [Future Improvements](#future-improvements)
+- [Acknowlegements](#acknowledgements)
+- [Links](#links)
+- [Install](#installation)
 
 ## Features
 
