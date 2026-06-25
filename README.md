@@ -94,3 +94,10 @@ Start the development server:
 ```bash
 npm run dev
 ```
+
+## Author
+
+M.Muneeb
+
+Frontend Mentor - [@mmuneeb1000](https://www.frontendmentor.io/profile/mmuneeb1000)
+X - [@Kiwitourist](https://x.com/Kiwitourist)
