@@ -42,19 +42,17 @@ function Search({
     <section className="search">
       <h1>How's the sky looking today?</h1>
       <form className="search-box" onSubmit={handleSubmit}>
-        <div>
-          <span className="search-icon">
-            <img src={searchIcon} />
-          </span>
-          <input
-            type="text"
-            placeholder="Search for a city, e.g., New York"
-            value={query}
-            onChange={(e) => {
-              (setQuery(e.target.value), handleCitySearch(e.target.value));
-            }}
-          />
-        </div>
+        <span className="search-icon">
+          <img src={searchIcon} />
+        </span>
+        <input
+          type="text"
+          placeholder="Search for a city, e.g., New York"
+          value={query}
+          onChange={(e) => {
+            (setQuery(e.target.value), handleCitySearch(e.target.value));
+          }}
+        />
         <button type="submit">Search</button>
 
         {suggestions.length > 0 && (

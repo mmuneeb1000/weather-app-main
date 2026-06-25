@@ -56,3 +56,13 @@
     width: 30px;
   }
 }
+
+@media (max-width: 48rem) {
+  .loading-state {
+    display: flex;
+    flex-direction: column;
+  }
+  .loading-primary-display {
+    max-width: 20rem;
+  }
+}

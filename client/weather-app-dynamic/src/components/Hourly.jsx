@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState, useRef } from "react";
 import { WEATHER_CODES } from "../services/weatherCodes";
 
 function Hourly({ hourly, selectedDay, setSelectedDay, daily }) {
@@ -25,24 +25,56 @@ function Hourly({ hourly, selectedDay, setSelectedDay, daily }) {
   const safeStart = startIndex === -1 ? 0 : startIndex;
 
   const next8 = filteredHours.slice(safeStart, safeStart + 8);
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef(null);
 
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpen(false);
+    }, 300);
+  };
   return (
     <section className="hourly-display">
       <div className="hourly-selector">
         <h3>Hourly Forecast</h3>
 
-        <select
-          value={selectedDay}
-          onChange={(e) => setSelectedDay(e.target.value)}
-        >
-          {daily.time.map((day) => (
-            <option key={day} value={day}>
-              {new Date(day).toLocaleDateString("en-US", {
-                weekday: "long",
-              })}
-            </option>
-          ))}
-        </select>
+        <div className="day-selector">
+          <button
+            className="day-trigger"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {selectedDay
+              ? new Date(selectedDay).toLocaleDateString("en-US", {
+                  weekday: "long",
+                })
+              : "Select Day"}
+            <i className="fa-solid fa-angle-down"></i>
+          </button>
+
+          {open && (
+            <ul className="day-menu">
+              {daily.time.map((day) => (
+                <li
+                  key={day}
+                  onClick={() => {
+                    setSelectedDay(day);
+                    setOpen(false);
+                  }}
+                >
+                  {new Date(day).toLocaleDateString("en-US", {
+                    weekday: "long",
+                  })}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
       <div className="hourly">
         {next8.map(({ t, i }) => {
@@ -51,13 +83,18 @@ function Hourly({ hourly, selectedDay, setSelectedDay, daily }) {
 
           return (
             <div key={t}>
-              <p>{new Date(t).getHours()}:00</p>
-              <img
-                className="hourly-icon"
-                src={weather.day}
-                alt={weather.label}
-              />
-              <p>{Math.round(hourly.temperature_2m[i])}°</p>
+              <p className="time-hourly">
+                <img
+                  className="hourly-icon"
+                  src={weather.day}
+                  alt={weather.label}
+                />
+                {new Date(t).getHours()}:00
+              </p>
+
+              <p className="hourly-temp">
+                {Math.round(hourly.temperature_2m[i])}°
+              </p>
             </div>
           );
         })}

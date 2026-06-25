@@ -38,9 +38,9 @@ function Loading() {
         <div className="hourly-selector">
           <h3>Hourly Forecast</h3>
 
-          <select>
-            <option>—</option>
-          </select>
+          <button className="day-trigger">
+            — <i className="fa-solid fa-angle-down"></i>
+          </button>
         </div>
 
         <div className="hourly-container">
