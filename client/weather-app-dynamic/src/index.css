@@ -506,10 +506,4 @@ option {
   .search-box > button {
     width: 100%;
   }
-
-  footer {
-    position: fixed;
-    bottom: 0rem;
-    background-color: var(--neutral-900);
-  }
 }
