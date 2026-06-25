@@ -418,7 +418,7 @@ option {
     margin-top: 2.25rem;
   }
 }
-@media (max-width: 23.5rem) {
+@media (max-width: 25rem) {
   main {
     display: flex;
     flex-direction: column;
