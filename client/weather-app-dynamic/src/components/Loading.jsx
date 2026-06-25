@@ -8,7 +8,7 @@ function Loading() {
         <div className="loading-primary-display">
           <img src={loadingIcon} /> <span>Loading...</span>
         </div>
-        <div className="secondary-display">
+        <div className="second-display">
           <div>
             Feels Like
             <p>—</p>

@@ -14,7 +14,7 @@ function Header({ units, onUnitChange }) {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setOpen(false);
-    }, 2000);
+    }, 3000);
   };
 
   return (

@@ -36,7 +36,7 @@ function Hourly({ hourly, selectedDay, setSelectedDay, daily }) {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setOpen(false);
-    }, 300);
+    }, 3000);
   };
   return (
     <section className="hourly-display">
