@@ -481,7 +481,7 @@ option {
   .daily-display {
     display: block;
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
   }
   .suggestions {
     top: 5.5rem;
