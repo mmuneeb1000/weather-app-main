@@ -475,6 +475,9 @@ option {
     display: flex;
     flex-direction: column;
   }
+  .daily > article {
+    padding: 0.8rem;
+  }
   .daily-display {
     display: block;
     width: 100%;
