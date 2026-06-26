@@ -123,10 +123,7 @@ function App() {
       {loading && <Loading />}
 
       {!loading && error && (
-        <Error
-          message={error}
-          onRetry={() => searchWeather("Arlington", units)}
-        />
+        <Error message={error} onRetry={() => searchWeather(city, units)} />
       )}
 
       {!loading && !error && weather && (
