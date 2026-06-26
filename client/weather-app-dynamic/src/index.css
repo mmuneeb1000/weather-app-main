@@ -37,7 +37,7 @@ h1 {
   text-align: center;
 }
 h3 {
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin: 0.5rem;
   width: 100%;
 }
@@ -333,7 +333,7 @@ option {
   gap: 0.5rem;
 }
 .daily > article {
-  padding: 0.35rem;
+  padding: 0.8rem 0.35rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
