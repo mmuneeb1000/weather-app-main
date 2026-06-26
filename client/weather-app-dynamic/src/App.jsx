@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { getWeatherByCity, searchCities } from "./services/api";
+import {
+  getWeatherByCity,
+  searchCities,
+  getCityFromCoords,
+} from "./services/api";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Cards from "./components/Cards";
@@ -77,7 +81,24 @@ function App() {
     }
   }
   useEffect(() => {
-    searchWeather("Arlington", units);
+    navigator.geolocation.getCurrentPosition(
+      async ({ coords }) => {
+        try {
+          const city = await getCityFromCoords(
+            coords.latitude,
+            coords.longitude,
+          );
+
+          searchWeather(city, units);
+        } catch (err) {
+          console.error(err);
+          searchWeather("Arlington", units);
+        }
+      },
+      () => {
+        searchWeather("Arlington", units);
+      },
+    );
   }, []);
 
   useEffect(() => {
