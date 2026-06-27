@@ -320,6 +320,7 @@ option {
 
 .date {
   font-size: 0.875rem;
+  margin: 0.5rem;
   color: var(--neutral-200);
 }
 .temperature {

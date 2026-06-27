@@ -125,7 +125,7 @@ function App() {
       {!loading && error && (
         <Error
           message={error}
-          onRetry={() => searchWeather("New York", units)}
+          onRetry={() => searchWeather(lastQuery, units)}
         />
       )}
 
