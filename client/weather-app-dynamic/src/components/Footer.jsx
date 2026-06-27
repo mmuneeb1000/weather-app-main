@@ -7,7 +7,8 @@ function Footer() {
           Frontend Mentor.
         </a>
         Coded by <a href="#">M. Muneeb.</a> Powered by
-        <a href="https://open-meteo.com/en/docs">OpenMateo.</a>
+        <a href="https://open-meteo.com/en/docs">OpenMateo</a> &
+        <a href="https://www.bigdatacloud.com/">BigLoadWeather.</a>
       </p>
     </footer>
   );

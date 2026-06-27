@@ -2,7 +2,7 @@ import { WEATHER_CODES } from "./weatherCodes";
 
 const GEO_URL = "https://geocoding-api.open-meteo.com/v1/search";
 const WEATHER_URL = "https://api.open-meteo.com/v1/forecast";
-const REVERSE_GEO_URL = "https://geocoding-api.open-meteo.com/v1/reverse";
+const REVERSE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 export async function searchCities(query) {
   if (query.length < 2) return [];
 
@@ -13,6 +13,19 @@ export async function searchCities(query) {
   const data = await response.json();
 
   return data.results || [];
+}
+export async function getCityFromCoords(latitude, longitude) {
+  const response = await fetch(
+    `${REVERSE_URL}?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to determine location");
+  }
+
+  const data = await response.json();
+
+  return data.city || data.locality || data.principalSubdivision || "Unknown";
 }
 
 export async function getWeatherByCity(city, units = "metric") {
@@ -70,21 +83,4 @@ export async function getWeatherByCity(city, units = "metric") {
       icon: isNight ? currentWeather.night : currentWeather.day,
     },
   };
-}
-export async function getCityFromCoords(latitude, longitude) {
-  const response = await fetch(
-    `${REVERSE_GEO_URL}?latitude=${latitude}&longitude=${longitude}&count=1`,
-  );
-
-  if (!response.ok) {
-    throw new Error("Failed to determine location");
-  }
-
-  const data = await response.json();
-
-  if (!data.results?.length) {
-    throw new Error("Location not found");
-  }
-
-  return data.results[0].name;
 }
